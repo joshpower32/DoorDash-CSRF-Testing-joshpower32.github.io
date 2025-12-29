@@ -1,1 +1,1 @@
-DoorDash Hackerone CSRF Testing joshuadanielca Dec, 25th, 2025
+A place for saving and hosting test Attacker HTML, that targets and executes vulnerabilities against Victim accounts who click on the Attackers link. 
